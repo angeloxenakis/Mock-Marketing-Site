@@ -1,0 +1,385 @@
+/* This initial set of styleing serves two purposes:
+  1. To set the ground work "areas" for the css grid of the page.
+  2. To set the default order and styling, some for what will show on mobile before
+  any media queries are set, and some styling that is accross the board regardless
+  of media queries. */
+
+.container {
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  background-image: url("../img/mainbg.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 2000px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: gray;
+}
+
+header {
+  background-color: #003366;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  grid-area: header;
+}
+
+main {
+  text-shadow: 2px 2px 8px #000000;
+  grid-area: main;
+}
+
+nav {
+  background-color: #003366;
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 10px;
+  grid-area: nav;
+}
+
+aside {
+  background-color: rgb(60, 60, 60, 0.5);
+  grid-area: aside;
+}
+
+footer {
+  background-color: #003366;
+  grid-area: footer;
+}
+
+button {
+  color: white;
+  text-shadow: 2px 2px 8px #000000;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  height: 50px;
+  width: 150px;
+  border-style: solid;
+  border-color: white;
+  border-width: 3px;
+  background-color: Transparent;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+button:hover {
+  background-color: rgb(60, 60, 60, 0.5);
+}
+
+/* Right here I admit my code is a little sloppy, i call the same classes and
+elemnets twice, but above this comment is all my universal styling regardless of
+media query, and below is my styling specifically for mobile.
+*/
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+
+main h1 {
+  font-size: 50px;
+  text-align: center;
+  letter-spacing: 8px;
+  padding-left: 50px;
+  padding-right:50px;
+}
+
+main p {
+  font-size: 18px;
+  text-align: center;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-top: 45px;
+  margin-bottom: 50px;
+}
+
+.blog-posts {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-right:20px;
+  margin-left: 20px;
+}
+
+.blog-posts h2 {
+  font-size: 20px;
+}
+
+.blog-posts a {
+  margin-top: 40px;
+}
+
+.sites {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  margin-right:20px;
+  margin-left: 20px;
+  margin-bottom: 40px;
+}
+
+.sites h2 {
+  font-size: 20px;
+}
+
+.sites a {
+  margin-top: 40px;
+}
+
+footer {
+  font-size: 12px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+footer a {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.container {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "aside"
+    "footer";
+}
+
+/* Below is the beginning of the tablet size query */
+
+@media (min-width: 500px) {
+  .container {
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas:
+      "header  header"
+      "nav     nav"
+      "main    main"
+      "aside   aside"
+      "footer  footer";
+  }
+
+  header {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 10px;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 150px;
+    padding-bottom: 150px;
+  }
+
+  main h1 {
+    text-align: left;
+    font-size: 70px;
+    letter-spacing: 8px;
+    padding-left: 50px;
+    padding-right:50px;
+  }
+
+  main p {
+    font-size: 18px;
+    text-align: left;
+    padding-left: 50px;
+    padding-right: 20%;
+    margin-top: 45px;
+    margin-bottom: 50px;
+  }
+
+  main button {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  .blog-posts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-right:20px;
+    margin-left: 20px;
+  }
+
+  .blog-posts h2 {
+    font-size: 20px;
+  }
+
+  .blog-posts a {
+    margin-top: 40px;
+  }
+
+  .sites {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    margin-right:20px;
+    margin-left: 20px;
+    margin-bottom: 40px;
+  }
+
+  .sites h2 {
+    font-size: 20px;
+  }
+
+  .sites a {
+    margin-top: 40px;
+  }
+
+  footer {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  footer a {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+/* Below is the browser size query */
+
+@media (min-width: 700px) {
+  .container {
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-areas:
+      "header  nav     nav"
+      "main    main    aside"
+      "main    main    aside"
+      "footer  footer  footer"
+   }
+
+   header {
+     font-size: 20px;
+     display: flex;
+     justify-content: center;
+     padding-top: 30px;
+     padding-bottom: 30px;
+     padding-left: 50px;
+   }
+
+   nav {
+     display: flex;
+     flex-direction: row;
+     justify-content: flex-end;
+     padding-right: 50px;
+     padding-top: 30px;
+     padding-bottom: 30px;
+   }
+
+   nav a {
+     font-size: 20px;
+     padding-left: 50px;
+   }
+
+   main {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     padding-top: 250px;
+     padding-bottom: 250px;
+   }
+
+   main h1 {
+     text-align: center;
+     font-size: 70px;
+     letter-spacing: 8px;
+     padding-left: 50px;
+     padding-right:50px;
+   }
+
+   main p {
+     font-size: 18px;
+     text-align: center;
+     padding-left: 20%;
+     padding-right: 20%;
+     margin-top: 45px;
+     margin-bottom: 50px;
+   }
+
+   .blog-posts {
+     text-align: left;
+     display: flex;
+     flex-direction: column;
+     align-items: flex-start
+     margin-top: 20px;
+     margin-right:20px;
+     margin-left: 20px;
+   }
+
+   .blog-posts h2 {
+     font-size: 20px;
+   }
+
+   .blog-posts a {
+     margin-top: 40px;
+     text-align: left;
+   }
+
+   .sites {
+     text-align: left;
+     display: flex;
+     flex-direction: column;
+     align-items: flex-start;
+     margin-top: 40px;
+     margin-right:20px;
+     margin-left: 20px;
+   }
+
+   .sites h2 {
+     font-size: 20px;
+   }
+
+   .sites a {
+     margin-top: 40px;
+   }
+
+   footer {
+     height: 100%;
+     display: flex;
+     justify-content: center;
+     padding-top: 15px;
+     padding-bottom: 15px;
+   }
+
+   footer a {
+     padding-left: 30px;
+     padding-right: 30px;
+   }
+
+}
